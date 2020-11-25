@@ -36,7 +36,7 @@ export default class blogPost extends Component {
      
         <Layout>
         <SEO
-          title="title Goes Here"
+          title={postData.title}
           keywords={[
             `David Opdendries`,
             `Microsoft 365`,
