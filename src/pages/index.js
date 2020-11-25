@@ -11,7 +11,6 @@ import Banner from "../components/banner";
 import Blogs from "../components/blogs";
 // import Testimonial from "../components/testimonial";
 // import Contact from "../components/contact";
-// import Photos from "../components/photos";
 
 const IndexPage = ({ data }) => (
   <Layout header="home">
@@ -49,11 +48,7 @@ const IndexPage = ({ data }) => (
         );
       })} */}
 
-    {/* {data.contentfulSiteInformation.menus
-      .filter(item => item === "Photos")
-      .map(t => {
-        return <Photos data={data.contentfulPhotos}></Photos>;
-      })} */}
+   
 
     {/* {data.contentfulSiteInformation.menus
       .filter(item => item === "Contact")
@@ -107,143 +102,3 @@ export default IndexPage;
   }
 }
 `
-
-// export const pageQuery = graphql`
-//   query AboutQuery {
-//     contentfulAboutMe {
-//       name
-//       photo {
-//         file {
-//           url
-//         }
-//         fluid {
-//           base64
-//           aspectRatio
-//           src
-//           srcSet
-//           srcWebp
-//           srcSetWebp
-//           sizes
-//         }
-//       }
-//       designation
-//       age
-//       facebook
-//       github
-//       gmail
-//       id
-//       instagram
-//       linkdin
-//       twitter
-//       location
-//       description {
-//         childMarkdownRemark {
-//           html
-//         }
-//       }
-//       bannerImage {
-//         fluid(maxWidth: 1500) {
-//           base64
-//           aspectRatio
-//           src
-//           srcSet
-//           srcWebp
-//           srcSetWebp
-//           sizes
-//         }
-//       }
-//       bannerList
-//     }
-//     allContentfulService {
-//       edges {
-//         node {
-//           title
-//           description {
-//             childMarkdownRemark {
-//               html
-//             }
-//           }
-//         }
-//       }
-//     }
-    // allContentfulBlogs(limit: 5, sort: {fields: createdAt, order: DESC}) {
-    //   edges {
-    //     node {
-    //       title
-    //       slug
-    //       featureImage {
-    //         fluid(maxWidth: 600) {
-    //           base64
-    //           aspectRatio
-    //           src
-    //           srcSet
-    //           srcWebp
-    //           srcSetWebp
-    //           sizes
-    //         }
-    //       }
-    //       createdAt
-    //     }
-    //   }
-    // }
-//     allContentfulTestimonials {
-//       edges {
-//         node {
-//           name
-//           subTitle
-//           description {
-//             childMarkdownRemark {
-//               html
-//             }
-//           }
-//           avatarImage {
-//             fluid(maxWidth: 200) {
-//               base64
-//               aspectRatio
-//               src
-//               srcSet
-//               srcWebp
-//               srcSetWebp
-//               sizes
-//             }
-//           }
-//         }
-//       }
-//     }
-//     allContentfulWorks {
-//       edges {
-//         node {
-//           siteName
-//           url
-//           image {
-//             fluid(maxWidth: 600) {
-//               base64
-//               aspectRatio
-//               src
-//               srcSet
-//               srcWebp
-//               srcSetWebp
-//               sizes
-//             }
-//           }
-//         }
-//       }
-//     }
-//     contentfulPhotos {
-//       photos {
-//         fluid(maxWidth: 600) {
-//           base64
-//           aspectRatio
-//           src
-//           srcSet
-//           srcWebp
-//           srcSetWebp
-//           sizes
-//         }
-//       }
-//     }
-//     contentfulSiteInformation {
-//       menus
-//     }
-//   }
-// `;
