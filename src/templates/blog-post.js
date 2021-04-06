@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { graphql, StaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import moment from "moment";
 import { DiscussionEmbed } from "disqus-react";
-import { MDXProvider } from "@mdx-js/react"
+// import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -82,15 +82,9 @@ export default class blogPost extends Component {
           </div>
         </div>
       </Layout>
-    
-   
-      
     );
   }
 }
-
-
-
 
 export const pageQuery = graphql`
   query BlogQuery($id: String) {
@@ -122,32 +116,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-
-// export const pageQuery = graphql`
-//   query SinglePostQuery($slug: String!) {
-//     allMdx(slug: { eq: $slug }) {
-//       id
-//       title
-//       slug
-//       featureImage {
-//         fluid(maxWidth: 1500) {
-//           base64
-//           aspectRatio
-//           src
-//           srcSet
-//           srcWebp
-//           srcSetWebp
-//           sizes
-//         }
-//       }
-//       description {
-//         childMarkdownRemark {
-//           html
-//         }
-//       }
-//       createdAt
-//     }
-    
-//   }
-// `;
