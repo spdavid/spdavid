@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
 
       - name: Set up Node.js version
         uses: actions/setup-node@v1
@@ -22,7 +22,7 @@ jobs:
           npm install
           npm run build
       - name: Upload To Azure Blob Storage
-        uses: bacongobbler/azure-blob-storage-upload@v1.0.0
+        uses: bacongobbler/azure-blob-storage-upload@v1.2.0
         with:
           source_dir: public #gatsby build generates this file after build
           container_name: $web
