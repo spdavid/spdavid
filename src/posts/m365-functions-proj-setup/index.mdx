@@ -1,0 +1,53 @@
+---
+title: Microsoft 365 / SharePoint C# Azure Functions QuickSetup
+date: 2022-06-06T11:22:24.145Z
+authorbox: true
+sidebar: false
+menu: false
+description: "Generating an Azure Functions solution and quickly having an easy setup ready
+  to code. "
+keywords:
+  - Microsoft 365
+  - SharePoint
+  - Azure Functions
+slug: microsoft-365-sharepoint-azure-functions-quicksetup
+draft: true
+---
+
+
+
+Install Azure Functions Core Tools
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
+
+``` PowerShell
+$SolutionName = "YM.Vault.Functions";
+
+# Create Solution
+dotnet new sln -n $SolutionName 
+
+# Create Common class Library
+dotnet new classlib -o ${SolutionName}".Common" --framework "net6.0" 
+dotnet sln ${SolutionName}".sln" add ${SolutionName}".Common\"${SolutionName}".Common.csproj"
+
+# Create Functions Project
+func init ${SolutionName}".Functions" --dotnet 
+
+$SolutionNameUnderScore = $SolutionName.Replace(".","_") # Needed for Function Proj Path
+dotnet sln ${SolutionName}".sln" add ${SolutionName}".Functions\"${SolutionNameUnderScore}"_Functions.csproj"
+
+# Create Testing Project
+dotnet new console -o ${SolutionName}".Testing" --framework "net6.0" 
+dotnet sln ${SolutionName}".sln" add ${SolutionName}".Testing\YM.Vault.Functions.Testing.csproj"
+
+# add reference to testing project
+cd ${SolutionName}".Testing" 
+dotnet add reference ../YM.Vault.Functions.Common/YM.Vault.Functions.Common.csproj
+
+dotnet add ${SolutionName}".Testing/"${SolutionName}".Testing.csproj" reference ${SolutionName}".common/"${SolutionName}".common.csproj"
+dotnet add ${SolutionName}".Functions/"${SolutionNameUnderScore}"_Functions.csproj" reference ${SolutionName}".common/"${SolutionName}".common.csproj"
+
+dotnet add ${SolutionName}".Common\"${SolutionName}".Common.csproj" package PnP.Framework --version 1.8.0
+
+```
+
+
